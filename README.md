@@ -60,4 +60,5 @@ To delete a task, click the "Delete" button next to the task you want to delete.
      This file contains the styling for the To-Do List.
 * `script.js` :
      This file contains the logic for the To-Do List, including adding, editing, and deleting tasks, and filtering the task list.
+  Updated by Mitali- Branch contribution for lab 3
 
