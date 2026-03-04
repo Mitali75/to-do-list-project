@@ -1,90 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Login</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#f2f2f2;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-}
-
-.box{
-background:white;
-padding:40px;
-border-radius:10px;
-width:300px;
-text-align:center;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-input{
-width:100%;
-padding:10px;
-margin:10px 0;
-border:1px solid #ccc;
-border-radius:5px;
-}
-
-button{
-width:100%;
-padding:10px;
-background:#0095f6;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
-
-a{
-color:#0095f6;
-text-decoration:none;
-}
-
-</style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<div class="box">
+  <div class="auth-page">
+    <div class="auth-card">
+      <div class="brand">MyApp</div>
+      <p class="subtitle">Sign in to continue</p>
 
-<h2>Login</h2>
+      <form class="auth-form" onsubmit="return loginUser()">
+        <div class="field">
+          <input type="email" id="loginEmail" placeholder="Email" required />
+        </div>
 
-<form onsubmit="return loginUser()">
+        <div class="field">
+          <input type="password" id="loginPassword" placeholder="Password" required />
+        </div>
 
-<input type="email" placeholder="Email" required>
+        <button class="auth-btn" type="submit">Log In</button>
 
-<input type="password" placeholder="Password" required>
+        <div class="divider"><span>OR</span></div>
+        <button class="auth-btn outline" type="button">Continue with Google</button>
+      </form>
+    </div>
 
-<button type="submit">Login</button>
+    <div class="auth-card small">
+      <p class="switch">
+        Don’t have an account?
+        <a href="registration.html">Sign up</a>
+      </p>
+    </div>
 
-</form>
+    <p class="mini-note">Demo UI only (no backend)</p>
+  </div>
 
-<p>Don't have an account?</p>
-
-<a href="registration.html">Register</a>
-
-</div>
-
-<script>
-
-function loginUser(){
-
-alert("Login Successful!");
-
-window.location.href="index.html";
-
-return false;
-
-}
-
-</script>
+  <script>
+    function loginUser() {
+      // Demo login (no backend)
+      localStorage.setItem("isLoggedIn", "true");
+      window.location.href = "index.html";
+      return false;
+    }
+  </script>
 
 </body>
 </html>

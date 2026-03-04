@@ -1,121 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>My Todo List</title>
-
-<link rel="stylesheet" href="style.css">
-
-<style>
-
-body{
-font-family: Arial, sans-serif;
-background:#f2f2f2;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-}
-
-.container{
-background:white;
-padding:30px;
-border-radius:10px;
-width:350px;
-text-align:center;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-h1{
-margin-bottom:20px;
-}
-
-.input-section{
-display:flex;
-gap:10px;
-}
-
-input{
-flex:1;
-padding:10px;
-border:1px solid #ccc;
-border-radius:5px;
-}
-
-button{
-padding:10px;
-background:#0095f6;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
-
-button:hover{
-background:#0077cc;
-}
-
-ul{
-list-style:none;
-padding:0;
-margin-top:20px;
-}
-
-li{
-background:#eee;
-padding:10px;
-margin:5px 0;
-border-radius:5px;
-display:flex;
-justify-content:space-between;
-}
-
-.logout{
-margin-top:20px;
-background:red;
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Todo List</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="todo-page">
 
-<div class="container">
+  <div class="container">
+    <h1>My To Do List</h1>
 
-<h1>My To Do List</h1>
+    <div class="input-section">
+      <input type="text" id="taskInput" placeholder="Enter a task">
+      <button onclick="addTask()">Add</button>
+    </div>
 
-<div class="input-section">
+    <ul id="taskList"></ul>
 
-<input type="text" id="taskInput" placeholder="Enter a task">
+    <button class="logout" onclick="logout()">Logout</button>
+  </div>
 
-<button onclick="addTask()">Add</button>
+  <script>
+    // simple protection: if not logged in, send to login page
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
 
-</div>
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "login.html";
+    }
+  </script>
 
-<ul id="taskList"></ul>
-
-<button class="logout" onclick="logout()">Logout</button>
-
-</div>
-
-<script src="script.js"></script>
-
-<script>
-
-function logout(){
-
-alert("Logged Out");
-
-window.location.href="login.html";
-
-}
-
-</script>
-
+  <script src="script.js"></script>
 </body>
-
 </html>

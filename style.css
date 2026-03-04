@@ -67,12 +67,6 @@
   border-radius: 7px;
 }
 
-.todo-page .completed span {
-  text-decoration: line-through;
-  color: gray;
-}
-
-/* Logout button (if you added it in index.html) */
 .todo-page .logout{
   margin-top: 15px;
   width: 100%;
@@ -82,7 +76,6 @@
 .todo-page .logout:hover{
   background: #dc2626;
 }
-
 
 /* =========================
    AUTH (Login/Register) UI

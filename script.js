@@ -1,32 +1,27 @@
 function addTask() {
-    const input = document.getElementById("taskInput");
-    const taskText = input.value.trim();
+  const input = document.getElementById("taskInput");
+  const taskText = input.value.trim();
 
-    if (taskText === "") return;
+  if (taskText === "") {
+    alert("Please enter a task");
+    return;
+  }
 
-    const li = document.createElement("li");
+  const li = document.createElement("li");
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
+  const span = document.createElement("span");
+  span.textContent = taskText;
 
-    const span = document.createElement("span");
-    span.textContent = taskText;
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.onclick = function () {
+    li.remove();
+  };
 
-    checkbox.addEventListener("change", function() {
-        li.classList.toggle("completed");
-    });
+  li.appendChild(span);
+  li.appendChild(deleteBtn);
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "X";
-    deleteBtn.onclick = function() {
-        li.remove();
-    };
+  document.getElementById("taskList").appendChild(li);
 
-    li.appendChild(checkbox);
-    li.appendChild(span);
-    li.appendChild(deleteBtn);
-
-    document.getElementById("taskList").appendChild(li);
-
-    input.value = "";
+  input.value = "";
 }
